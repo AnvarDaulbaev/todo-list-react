@@ -1,36 +1,73 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+## Обзор проекта:
 
-## Getting Started
+Приложение Todo List разработанное с использованием Next.js, React, TypeScript. Оно позволяет создавать, редактировать, просматривать, удалять задачи, так же доступна фильтрация по названию и статусу, интерфейс поддерживает светлую и темную темы. Данные сохраняются в localeStorage, для сохранения при обновлении страницы. Реализована управление модальными окнами, а так же уведомлениями (snackbar).
 
-First, run the development server:
+## Инструкция по запуску проекта локально
+
+### Требования:
+
+- Node.js >= 18
+- npm, yarn, pnpm, bun
+
+### Установка зависимостей:
+
+```bash
+npm install
+# или
+yarn
+# или
+pnpm install
+# или
+bun install
+```
+
+### Запуск проекта:
 
 ```bash
 npm run dev
-# or
+# или
 yarn dev
-# or
+# или
 pnpm dev
-# or
+# или
 bun dev
 ```
+### Проект будет доступен по адресу: http://localhost:3000 
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Краткое описание использования:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Приложение представляет собой список задач (Todo List), в котором реализованы следующие функции:
+- Добавление задачи через модальное окно.
+- Редактирование существующей задачи.
+- Просмотр любых задач.
+- Удаление задачи с возможностью отмены через snackbar.
+- Поиск задачи по заголовку.
+- Фильтрация по статусам задач.
+- Поддержка светлой/темной темы.
+- Сохранение данных в localeStorage.
+- Сделана адаптивность под разные экраны.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Для создания задачи (Todo), нужно будет нажать на + в правом нижнем углу экрана.
 
-## Learn More
 
-To learn more about Next.js, take a look at the following resources:
+## Ответы на вопросы:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Что было самым сложным в задании?:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Сделать отсчет в snackbar`е при удалении задачи и возвратить задачу при нажатии на кнопку которая показывает отсчет до удаляени. Обуславливается это тем, что отсчет и возвращение после удалении делал впервые. Так же делал впервые тему, но она далась легче.
 
-## Deploy on Vercel
+### Какую часть решения вы (я) считаете наиболее качественной?:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Отображение модального окна, отображение snackbar. Благодаря контекстам, модальное окно и snackbar вызываются из любого места приложения.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### Что бы вы (я) улучшил при наличии дополнительного времени?:
+
+Возможность адаптировать дизайн под все разрешения экранов.
+
+### Сколько времени вы (я) потратил?:
+
+Потратил я 2 дня. Первый день занимался дизайном и основной логики для добавления, удаления, просмотра и изменения задачь, фильтрацией по задачам и статусам, светлой/темной темой и модальным окном. Второй день: вынес модальное окно в контекс, добавил snackbar, сделал стили для мобильной версии приложения.
+
+### Что нового вы (я) узнал?:
+
+Как сделать темную/светлую тему для приложения, так как это я делал впервые. Возвращение после удалении задачи через нажатии на snackbar, так же отчет до удаления, так как это тоже делал впервые.
