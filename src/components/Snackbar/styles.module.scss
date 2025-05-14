@@ -1,0 +1,134 @@
+@import "../../styles/varibles";
+@import "../../styles//mixins/";
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translate(-0%, 100px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-0%, 0);
+  }
+}
+
+.snackbar {
+  position: fixed;
+  right: 35%;
+  bottom: 10%;
+  max-width: 150px;
+  width: auto;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  border-radius: 5px;
+  background: #5850DD;
+  transition: all 0.3s ease-in-out;
+  color: $white;
+  animation: fadeInUp 0.3s ease;
+  cursor: pointer;
+  z-index: 999;
+  padding: 10px;
+
+  &__undo {
+    width: auto;
+    height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+
+    > span {
+      margin-right: 5px;
+    }
+  }
+
+  &__timer {
+    width: 25px;
+    height: 25px;
+    position: relative;
+    margin-right: 8px;
+  }
+
+  &__circle {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform: rotate(-90deg);
+
+    &_bg {
+      fill: none;
+      stroke: rgba(255, 255, 255, 0.2);
+      stroke-width: 4;
+    }
+    
+    &_fg {
+      fill: none;
+      stroke: white;
+      stroke-width: 4;
+      stroke-linecap: round;
+      transition: stroke-dasharray 0.1s linear;
+    }
+
+    &_seconds {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: $white;
+      font-size: 8px;
+      font-weight: bold;
+    }
+  }
+
+  &:hover {
+    background: #534CC2;
+  }
+
+  &:focus {
+    outline: 1px solid #5850DD;
+    box-shadow: 0 0 2px 2px #5850DD;
+  }
+
+  &.error {
+    background: #E50000;
+
+    &:focus {
+      outline: 1px solid #E50000;
+      box-shadow: 0 0 2px 2px #E50000;
+    }
+  }
+}
+
+@include respond-above(lg) {
+  .snackbar {
+    right: 45%;
+    bottom: 10%;
+    max-width: 200px;
+    padding: 10px;
+
+    &__undo {
+      > span {
+        margin-right: 5px;
+      }
+    }
+
+    &__timer {
+      width: 45px;
+      height: 45px;
+      margin-right: 13px;
+    }
+
+    &__circle {
+      &_seconds {
+        font-size: 15px;
+      }
+    }
+  }
+}

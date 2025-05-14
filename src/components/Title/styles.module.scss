@@ -1,0 +1,18 @@
+@import "../../styles/varibles";
+@import "../../styles//mixins/";
+
+.title {
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 100%;
+  text-align: center;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+@include respond-above(lg) {
+  .title {
+    font-size: 26px;
+    margin-bottom: 18px;
+  }
+}

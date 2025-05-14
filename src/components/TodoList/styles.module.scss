@@ -1,0 +1,110 @@
+@import "../../styles/varibles";
+@import "../../styles//mixins/";
+
+.todoList {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  &__btn {
+    button {
+      position: fixed;
+      right: 20px;
+      bottom: 5%;
+      width: 30px;
+      height: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background: #5850DD;
+      transition: all 0.3s ease-in-out;
+      cursor: pointer;
+      z-index: 1;
+
+      &:hover {
+        background: #534CC2;
+      }
+
+      &::before {
+        position: absolute;
+        content: "";
+        width: 1px;
+        height: 13px;
+        background: $white;
+        border-radius: 100px;
+        z-index: 1;
+      }
+
+      &::after {
+        position: absolute;
+        content: "";
+        width: 13px;
+        height: 1px;
+        background: $white;
+        border-radius: 100px;
+        z-index: 1;
+      }
+    }
+  }
+
+  &__empty {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: -1;
+
+    img {
+      width: 221px;
+      height: 174px;
+      margin-bottom: 20px;
+    }
+
+    span {
+      font-size: 20px;
+      line-height: 100%;
+      color: var(--text);
+    }
+  }
+}
+
+@include respond-above(lg) {
+  .todoList {
+    &__btn {
+      button {
+        right: 20%;
+        bottom: 5%;
+        width: 50px;
+        height: 50px;
+
+        &::before {
+          width: 3px;
+          height: 24px;
+        }
+
+        &::after {
+          width: 24px;
+          height: 3px;
+        }
+      }
+    }
+
+    &__empty {
+      img {
+        width: 221px;
+        height: 174px;
+        margin-bottom: 20px;
+      }
+
+      span {
+        font-size: 20px;
+      }
+    }
+  }
+}
